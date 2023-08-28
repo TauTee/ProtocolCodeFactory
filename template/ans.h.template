@@ -1,0 +1,36 @@
+#ifndef __${MODULE_NAME_CAP}_H__
+#define __${MODULE_NAME_CAP}_H__
+
+#include "stm32fxx_hal.h"
+
+#ifdef __cplusplus
+    extern "C" {
+#endif
+
+#define ${MODULE_NAME_CAP}_FRAME_LENGTH (${FRAME_LENGTH})   /* 帧长度 */
+${DEFINE_ALL_FRAME_HEADER}
+
+/**
+ * @enum   ${MODULE_NAME_CAP}_State_t
+ * @brief  协议解析状态枚举
+*/
+typedef enum
+{
+${STATE_ENUM_VALUES}
+}${MODULE_NAME_CAP}_State_t;
+
+/**
+ * @struct ${MODULE_NAME_CAP}_Data_t
+ * @brief  结构说明
+ */
+typedef struct
+{
+${DataDefine}
+}${MODULE_NAME_CAP}_Data_t;
+
+#ifdef __cplusplus
+    }
+#endif /* ifdef __cplusplus */
+
+#endif /* ifndef __${MODULE_NAME_CAP}_H__*/
+

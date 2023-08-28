@@ -1,0 +1,13 @@
+    case ${NOW_STATE_ENUM}:
+        if(${SPECIFIED_VALUE} == Byte)
+        {${OPT_ON_NEXT_STATE}
+            State = ${NEXT_STATE_ENUM};
+            StatusRet = HAL_OK;
+        }
+        else
+        {
+            State = ${STATE_EMPTY};
+            StatusRet = HAL_ERROR;
+        }
+
+        break;

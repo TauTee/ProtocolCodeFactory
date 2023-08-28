@@ -1,0 +1,34 @@
+#include "${MODULE_NAME}.h"
+
+${MODULE_NAME_CAP}_Data_t mParseAns = {0};
+volatile ${MODULE_NAME_CAP}_HasNewData = RESET;     /* 标记是否收到了新的数据 */
+
+/**
+ * @fn          ${MODULE_NAME_CAP}_ReceivedByte
+ * @brief       接收到相机回复的一个字节后的处理
+ * @param[in]   Byte: 接收到的字节数据
+ * @return      返回状态码
+ * @note        
+ */
+static inline HAL_StatusTypeDef ${MODULE_NAME_CAP}_ReceivedByte(uint8_t Byte)
+{
+    static uint8_t State = ${STATE_NONE};
+    HAL_StatusTypeDef StatusRet = HAL_OK;
+${RECEIVE_FUNC_DATA_DEFINE}
+    /* 之前的数据尚未处理，不接收新数据 */
+    if(SET == ${MODULE_NAME_CAP}_HasNewData)
+    {
+        return HAL_BUSY;
+    }
+
+    switch(State)
+    {
+${ALL_STATE_CASES}
+    default:
+        State = ${STATE_NONE};
+        StatusRet = HAL_ERROR;
+        break;
+    }
+
+    return StatusRet;
+}

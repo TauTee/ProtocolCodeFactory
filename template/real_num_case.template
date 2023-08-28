@@ -1,0 +1,12 @@
+
+    case ${NOW_STATE_ENUM}:
+        if(${VARIABLE_NAME}ReceiveNum < sizeof(${STRUCT_NAME}.${VARIABLE_NAME}))
+        {
+            ${SPLICING_OPT}
+        }
+        else
+        {${OPT_ON_NEXT_STATE}
+            State = ${NEXT_STATE_ENUM};
+        }
+
+        break;
